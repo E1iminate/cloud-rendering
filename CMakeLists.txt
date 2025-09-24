@@ -19,10 +19,10 @@ project(cloud-rendering)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# Put all executables/DLLs in bin/<Config>/
+# Put all executables/DLLs in <build>/bin if no build config
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Split by build config (Debug, Release, etc.)
+# Split by build config (Debug, Release, etc.) if build configs available
 foreach(OUTPUTCONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
     string(TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG_UPPER)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/bin/${OUTPUTCONFIG})

@@ -16,10 +16,8 @@
 
 set(TARGET minimal-vulkan-app)
 
-# Add your source files
 add_executable(${TARGET} main.cxx)
 
-# Include headers
 target_include_directories(${TARGET}
     PRIVATE
         ${VULKAN_SDK_PATH}/Include

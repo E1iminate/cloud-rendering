@@ -18,13 +18,11 @@
 #include <iostream>
 
 int main(int argc, char* argv[]) {
-    // Initialize SDL3
     if (!SDL_Init(SDL_INIT_VIDEO)) {
         std::cerr << "SDL_Init failed: " << SDL_GetError() << std::endl;
         return 1;
     }
 
-    // Create a resizable window
     SDL_Window* window = SDL_CreateWindow(
         "Minimal SDL3 App",
         800, 600,
@@ -36,7 +34,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Get the window surface
     SDL_Surface* surface = SDL_GetWindowSurface(window);
 
     bool running = true;
