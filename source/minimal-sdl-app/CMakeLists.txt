@@ -14,5 +14,16 @@
 # limitations under the License.
 ##########################################################################
 
-add_subdirectory(minimal-vulkan-app)
-add_subdirectory(minimal-sdl-app)
+set(TARGET minimal-sdl-app)
+
+add_executable(${TARGET} main.cxx)
+
+target_link_libraries(${TARGET}
+    PRIVATE
+        SDL3::SDL3
+)
+
+target_include_directories(${TARGET}
+    PRIVATE
+        ${ROOT_DIR}/deps/SDL/include
+)

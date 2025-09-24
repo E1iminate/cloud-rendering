@@ -19,9 +19,19 @@ project(cloud-rendering)
 
 set(CMAKE_CXX_STANDARD 20)
 
+# Put all executables/DLLs in bin/<Config>/
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Split by build config (Debug, Release, etc.)
+foreach(OUTPUTCONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
+    string(TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG_UPPER)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/bin/${OUTPUTCONFIG})
+endforeach()
+
 set(ROOT_DIR ${CMAKE_CURRENT_LIST_DIR})
 list(APPEND CMAKE_MODULE_PATH ${ROOT_DIR}/cmake/modules)
 
 include(VulkanSDK)
 
+add_subdirectory(deps/SDL)
 add_subdirectory(source)
