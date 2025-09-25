@@ -33,5 +33,5 @@ list(APPEND CMAKE_MODULE_PATH ${ROOT_DIR}/cmake/modules)
 
 include(VulkanSDK)
 
-add_subdirectory(deps/SDL)
+add_subdirectory(deps/glfw)
 add_subdirectory(source)
