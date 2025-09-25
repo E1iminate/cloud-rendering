@@ -15,4 +15,4 @@
 ##########################################################################
 
 add_subdirectory(minimal-vulkan-app)
-add_subdirectory(minimal-sdl-app)
+add_subdirectory(minimal-glfw-app)

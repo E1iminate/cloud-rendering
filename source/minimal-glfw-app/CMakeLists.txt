@@ -14,16 +14,17 @@
 # limitations under the License.
 ##########################################################################
 
-set(TARGET minimal-sdl-app)
+set(TARGET minimal-glfw-app)
 
-add_executable(${TARGET} main.cxx)
-
-target_link_libraries(${TARGET}
-    PRIVATE
-        SDL3::SDL3
-)
+add_executable(${TARGET} ${TARGET}.cxx)
 
 target_include_directories(${TARGET}
     PRIVATE
-        ${ROOT_DIR}/deps/SDL/include
+        ${VULKAN_SDK_PATH}/Include
+)
+
+target_link_libraries(${TARGET}
+    PRIVATE
+        "${VULKAN_SDK_PATH}/Lib/vulkan-1.lib"
+        glfw
 )
